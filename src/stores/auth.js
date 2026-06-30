@@ -10,7 +10,6 @@ export const useAuthStore = defineStore('auth', () => {
   function login(username, password) {
     const user = users.find(u => u.username === username)
     
-    // Bug intentionally included: Case insensitive password check
     if (user && user.password.trim() === password) {
       currentUser.value = user
       isAuthenticated.value = true

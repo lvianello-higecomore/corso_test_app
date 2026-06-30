@@ -10,6 +10,11 @@ const username = ref('')
 const password = ref('')
 
 const handleLogin = () => {
+  if (!username.value || !password.value) {
+    authStore.loginError = 'Inserisci sia nome utente che password'
+    return
+  }
+  
   const success = authStore.login(username.value, password.value)
   if (success) {
     const role = authStore.currentUser.role
@@ -40,7 +45,6 @@ const handleLogin = () => {
             id="username" 
             v-model="username" 
             class="form-input" 
-            required 
             data-cy="login-username"
           />
         </div>
@@ -52,7 +56,6 @@ const handleLogin = () => {
             id="password" 
             v-model="password" 
             class="form-input" 
-            required 
             data-cy="login-password"
           />
         </div>
