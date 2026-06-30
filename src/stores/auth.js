@@ -1,0 +1,38 @@
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
+import { users } from '@/data/mockData'
+
+export const useAuthStore = defineStore('auth', () => {
+  const currentUser = ref(null)
+  const isAuthenticated = ref(false)
+  const loginError = ref('')
+
+  function login(username, password) {
+    const user = users.find(u => u.username === username)
+    
+    // Bug intentionally included: Case insensitive password check
+    if (user && user.password.toLowerCase() === password.toLowerCase()) {
+      currentUser.value = user
+      isAuthenticated.value = true
+      loginError.value = ''
+      return true
+    } else {
+      loginError.value = 'Credenziali non valide'
+      return false
+    }
+  }
+
+  function logout() {
+    currentUser.value = null
+    isAuthenticated.value = false
+    loginError.value = ''
+  }
+
+  return {
+    currentUser,
+    isAuthenticated,
+    loginError,
+    login,
+    logout
+  }
+})
