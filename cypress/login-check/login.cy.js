@@ -1,5 +1,5 @@
 describe('ChargeGrid Login Tests', () => {
-
+  
   it('Login con Credenziali vuote', () => {
     cy.visit('/Login')
     cy.get('[data-cy="login-username"]').clear()
@@ -30,6 +30,14 @@ describe('ChargeGrid Login Tests', () => {
     cy.get('[data-cy="login-password"]').clear().type('roberto2024!')
     cy.get('[data-cy="login-submit"]').click()
     cy.get('[data-cy="login-error"]').should('be.visible')
+  });
+
+  it('Login con utente funzionante', () => {
+    cy.visit('/Login')
+    cy.get('[data-cy="login-username"]').clear().type('roberto')
+    cy.get('[data-cy="login-password"]').clear().type('Roberto2024!')
+    cy.get('[data-cy="login-submit"]').click()
+    cy.url().should('include', '/operator')
   });
 
 });

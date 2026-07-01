@@ -2,6 +2,8 @@ name: Cypress CI/CD Workflow
 
 on: 
   push:
+  pull_request:
+    types: [opened, reopened]
 
 jobs:
   login-check:
