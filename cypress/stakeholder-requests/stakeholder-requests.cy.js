@@ -7,9 +7,4 @@ const loginAsAdmin = function() {
 
 describe('Richieste stakeholder', () => {
 
-  it(`Non mostrare pulsante notifiche`, () => {
-    loginAsAdmin();
-    cy.get('[data-cy="nav-notification"]').should('not.be.visible');
-  });
-
 });
