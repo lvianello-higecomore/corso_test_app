@@ -84,8 +84,8 @@ export const useTicketStore = defineStore('tickets', () => {
     
     for (const tech of technicians) {
       // Intentional bug: swapping lat and lng
-      const dx = tech.location.lng - station.coordinates.lat
-      const dy = tech.location.lat - station.coordinates.lng
+      const dx = tech.location.lng - station.coordinates.lng
+      const dy = tech.location.lat - station.coordinates.lat
       
       const distance = Math.sqrt(dx * dx + dy * dy)
       if (distance < minDistance) {

@@ -42,7 +42,7 @@ const assignedTechName = computed(() => {
   <div class="card" @click="$emit('click')" style="cursor: pointer;" :data-cy="`ticket-card-${ticket.id}`">
     <div class="card-header">
       <h3 class="section-title">Ticket #{{ ticket.id }}</h3>
-      <span class="badge" :class="priorityClass" :data-cy="`ticket-priority-${ticket.id}`">
+      <span class="badge" :class="priorityClass" :data-cy="`ticket-id-${ticket.id}`" :data-cy-priority="`ticket-priority-${ticket.priority}`">
         Priorità {{ ticket.priority }}
       </span>
     </div>
