@@ -12,8 +12,7 @@ export const useTicketStore = defineStore('tickets', () => {
   })
 
   const sortedByPriority = computed(() => {
-    // Intentionally bugged sorting: bassa > media > alta
-    const priorityMap = { 'alta': 3, 'media': 2, 'bassa': 1 }
+    const priorityMap = { 'alta': 1, 'media': 2, 'bassa': 3 }
     return [...tickets.value].sort((a, b) => priorityMap[a.priority] - priorityMap[b.priority])
   })
 
@@ -49,14 +48,11 @@ export const useTicketStore = defineStore('tickets', () => {
       ticket.updatedAt = new Date()
       
       const notificationStore = useNotificationStore()
-      // Intentional bug: skip notification for falso_allarme
-      if (newStatus === 'risolto' || newStatus === 'assistenza_necessaria') {
-        notificationStore.addNotification({
-          type: 'ticket_update',
-          message: `Stato ticket #${ticketId} aggiornato a: ${newStatus}`,
-          ticketId: ticketId
-        })
-      }
+      notificationStore.addNotification({
+        type: 'ticket_update',
+        message: `Stato ticket #${ticketId} aggiornato a: ${newStatus}`,
+        ticketId: ticketId
+      });
     }
   }
 
