@@ -29,7 +29,7 @@ const filteredTickets = computed(() => {
   
   // Apply sorting - bug: sortedByPriority logic from store is recreated here if we want it sorted
   // We'll just sort it identically to the bugged logic: bassa > media > alta
-  const priorityMap = { 'alta': 3, 'media': 2, 'bassa': 1 }
+  const priorityMap = { 'alta': 1, 'media': 2, 'bassa': 3 }
   return filtered.sort((a, b) => priorityMap[a.priority] - priorityMap[b.priority])
 })
 
