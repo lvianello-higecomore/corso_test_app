@@ -27,7 +27,6 @@ const logout = () => {
         <router-link to="/operator" class="nav-link" data-cy="nav-dashboard">Dashboard</router-link>
         <router-link to="/operator/tariffs" class="nav-link" data-cy="nav-tariffe">Tariffe</router-link>
         <router-link to="/operator/tickets" class="nav-link" data-cy="nav-ticket">Ticket</router-link>
-        <router-link to="/operator/notifications" class="nav-link" data-cy="nav-notifiche">Notifiche</router-link>
       </template>
     </nav>
     <div class="header-nav">
