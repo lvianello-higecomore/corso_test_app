@@ -39,8 +39,8 @@ describe('Interfaccia Operatore di Sistema', () => {
   })
 
   it('dovrebbe ricevere una notifica quando una colonnina è offline da almeno 5 minuti', () => {
-    // Mock del tempo per testare i 5 minuti di offline
-    cy.clock()
+    // Mock del tempo — esclude requestAnimationFrame per non bloccare le transizioni Vue
+    cy.clock(Date.now(), ['setTimeout', 'clearTimeout', 'setInterval', 'clearInterval', 'Date'])
     
     // Navighiamo alla dashboard in caso non ci fossimo
     cy.get('[data-cy="nav-dashboard"]').click()

@@ -38,8 +38,7 @@ export const useNotificationStore = defineStore('notifications', () => {
   function checkOfflineStations() {
     const stationStore = useStationStore()
     const now = Date.now()
-    // Intentional bug: threshold is 4 minutes instead of 5 minutes
-    const threshold = 4 * 60 * 1000 
+    const threshold = 5 * 60 * 1000; // 5 minuti
     
     stationStore.stations.forEach(station => {
       if ((station.status === 'offline' || station.status === 'guasta') && station.offlineSince) {

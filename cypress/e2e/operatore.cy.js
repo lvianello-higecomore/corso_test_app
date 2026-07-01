@@ -1,4 +1,0 @@
-describe('ChargeGrid Operatore Tests', () => {
-
-
-});
