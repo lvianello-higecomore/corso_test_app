@@ -15,12 +15,12 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Run Login Test
-        uses: cypress-io/github-action@6
+        uses: cypress-io/github-action@v6
         with:
           start: npm run dev
           wait: http://localhost:8008
           spec: cypress/login-check/login.cy.js
-      - uses: actions/upload-artifact@4
+      - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: videos
