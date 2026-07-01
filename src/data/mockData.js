@@ -25,6 +25,7 @@ export const users = [
   { id: 3, username: 'giuseppe', password: 'Giuseppe2024!', name: 'Giuseppe Verdi', role: 'tecnico', location: { lat: 45.4642, lng: 9.1900 } },
   { id: 4, username: 'anna', password: 'Anna2024!', name: 'Anna Neri', role: 'tecnico', location: { lat: 45.4800, lng: 9.2100 } },
   { id: 5, username: 'roberto', password: 'Roberto2024!', name: 'Roberto Esposito', role: 'operatore' },
+  { id: 7, username: 'robert2o', password: 'Roberto2024!', name: 'Roberto Gustativi', role: 'operatore' },
   { id: 6, username: 'admin', password: 'Admin2024!', name: 'Admin Sistema', role: 'operatore' }
 ]
 
