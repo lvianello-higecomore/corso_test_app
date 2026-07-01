@@ -1,0 +1,27 @@
+name: Cypress CI/CD Workflow
+
+on: 
+  push:
+
+jobs:
+  login-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Depencencies
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16
+          cache: npm
+      - run: npm ci
+      - name: Run Login Test
+        uses: cypress-io/github-action@6
+        with:
+          start: npm run dev
+          wait: http://localhost:8008
+          spec: cypress/e2e/login.cy.js
+      - uses: actions/upload-artifact@4
+        if: failure()
+        with:
+          name: videos
+          path: cypress/videos

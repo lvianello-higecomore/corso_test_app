@@ -10,7 +10,8 @@ export default defineConfig({
     }
   },
   server: {
-    host: true,
-    allowedHosts: true
+    host: '0.0.0.0',
+    allowedHosts: true,
+    port: 8008
   }
 })
