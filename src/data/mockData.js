@@ -66,7 +66,7 @@ export function getInitialTickets() {
   return [
     { id: 1, stationId: 3, stationName: 'COL-003', locationName: 'Parcheggio Stazione', description: 'Connettore danneggiato, non aggancia il veicolo', priority: 'alta', status: 'assegnato', assignedTo: 3, createdAt: hoursAgo(2), updatedAt: hoursAgo(1) },
     { id: 2, stationId: 5, stationName: 'COL-005', locationName: 'Azienda TechCorp', description: 'Display non funzionante, errore E45', priority: 'media', status: 'assegnato', assignedTo: 4, createdAt: hoursAgo(5), updatedAt: hoursAgo(3) },
-    { id: 3, stationId: 5, stationName: 'COL-005', locationName: 'Azienda TechCorp', description: 'Nessuna risposta dal modulo di comunicazione', priority: 'alta', status: 'aperto', assignedTo: null, createdAt: hoursAgo(1), updatedAt: hoursAgo(1) },
+    { id: 3, stationId: 5, stationName: 'COL-005', locationName: 'Azienda TechCorp', description: 'Nessuna risposta dal modulo di comunicazione', priority: 'alta', status: 'aperto', assignedTo: 3, createdAt: hoursAgo(1), updatedAt: hoursAgo(1) },
     { id: 4, stationId: 7, stationName: 'COL-007', locationName: 'Parcheggio Aeroporto', description: 'Errore di alimentazione intermittente', priority: 'bassa', status: 'assegnato', assignedTo: 3, createdAt: hoursAgo(24), updatedAt: hoursAgo(12) },
     { id: 5, stationId: 2, stationName: 'COL-002', locationName: 'Parcheggio Centro', description: 'Lettore RFID non funzionante', priority: 'media', status: 'risolto', assignedTo: 4, createdAt: hoursAgo(48), updatedAt: hoursAgo(24) }
   ]
