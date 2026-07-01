@@ -44,20 +44,20 @@ export function getInitialStations() {
 export function getInitialTariffs() {
   return [
     { id: 1, locationName: 'Parcheggio Centro', timeSlots: [
-      { label: 'Diurna (8-20)', startHour: 8, endHour: 20, pricePerKWh: 0.45 },
-      { label: 'Notturna (20-8)', startHour: 20, endHour: 8, pricePerKWh: 0.30 }
+      { label: 'Diurna', startHour: 8, pricePerKWh: 0.45 },
+      { label: 'Notturna', startHour: 20, pricePerKWh: 0.30 }
     ]},
     { id: 2, locationName: 'Parcheggio Stazione', timeSlots: [
-      { label: 'Diurna (7-22)', startHour: 7, endHour: 22, pricePerKWh: 0.50 },
-      { label: 'Notturna (22-7)', startHour: 22, endHour: 7, pricePerKWh: 0.35 }
+      { label: 'Diurna', startHour: 7, pricePerKWh: 0.50 },
+      { label: 'Notturna', startHour: 22, pricePerKWh: 0.35 }
     ]},
     { id: 3, locationName: 'Azienda TechCorp', timeSlots: [
-      { label: 'Orario lavoro (8-18)', startHour: 8, endHour: 18, pricePerKWh: 0.40 },
-      { label: 'Fuori orario (18-8)', startHour: 18, endHour: 8, pricePerKWh: 0.25 }
+      { label: 'Orario lavoro', startHour: 8, pricePerKWh: 0.40 },
+      { label: 'Fuori orario', startHour: 18, pricePerKWh: 0.25 }
     ]},
     { id: 4, locationName: 'Parcheggio Aeroporto', timeSlots: [
-      { label: 'Diurna (6-23)', startHour: 6, endHour: 23, pricePerKWh: 0.55 },
-      { label: 'Notturna (23-6)', startHour: 23, endHour: 6, pricePerKWh: 0.38 }
+      { label: 'Diurna', startHour: 6, pricePerKWh: 0.55 },
+      { label: 'Notturna', startHour: 23, pricePerKWh: 0.38 }
     ]}
   ]
 }

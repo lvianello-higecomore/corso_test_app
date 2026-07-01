@@ -56,7 +56,7 @@ const saveTariff = (tariffId) => {
             <div v-for="(slot, index) in tariff.timeSlots" :key="index" class="flex-between mb-2">
               <div>
                 <span class="font-bold">{{ slot.label }}</span>
-                <div class="text-xs text-muted">{{ slot.startHour }}:00 - {{ slot.endHour }}:00</div>
+                <div class="text-xs text-muted">{{ slot.startHour }}:00 - {{ tariff.timeSlots[(index + 1) % tariff.timeSlots.length].startHour }}:00</div>
               </div>
               <div class="text-lg text-primary font-bold">
                 €{{ slot.pricePerKWh.toFixed(2) }}<span class="text-xs text-secondary font-normal">/kW</span>
@@ -66,7 +66,16 @@ const saveTariff = (tariffId) => {
           
           <div v-else>
             <div v-for="(slot, index) in editedSlots[tariff.id]" :key="index" class="mb-3 p-2 bg-secondary rounded">
-              <div class="font-bold mb-1">{{ slot.label }}</div>
+              <div class="flex gap-2">
+                <div class="flex-1">
+                  <label class="form-label text-xs">Inizio fascia "{{ slot.label }}"</label>
+                  <input type="number" 
+                         v-model="slot.startHour" 
+                         class="form-input p-1 h-auto" 
+                         step="1" min="0" max="23"
+                         :data-cy="`tariff-start-hour-${tariff.id}-${index}`" />
+                </div>
+              </div>
               <div class="flex gap-2">
                 <div class="flex-1">
                   <label class="form-label text-xs">Prezzo / kW (€)</label>

@@ -15,22 +15,25 @@ export const useTariffStore = defineStore('tariffs', () => {
     if (!tariff) return null
 
     const currentHour = new Date().getHours()
-    
-    // Intentionally using <= instead of < which creates an overlap bug at the boundary hour
-    for (const slot of tariff.timeSlots) {
-      if (slot.startHour < slot.endHour) {
-        if (currentHour >= slot.startHour && currentHour <= slot.endHour) {
-          return slot
+    const slots = tariff.timeSlots
+
+    for (let i = 0; i < slots.length; i++) {
+      const startHour = slots[i].startHour
+      const endHour = slots[(i + 1) % slots.length].startHour
+
+      if (startHour < endHour) {
+        if (currentHour >= startHour && currentHour < endHour) {
+          return slots[i]
         }
       } else {
-        // Handle overnight slots (e.g., 22-07)
-        if (currentHour >= slot.startHour || currentHour <= slot.endHour) {
-          return slot
+        // Overnight slot (e.g., 20 → 8)
+        if (currentHour >= startHour || currentHour < endHour) {
+          return slots[i]
         }
       }
     }
-    
-    return tariff.timeSlots[0] // fallback
+
+    return slots[0] // fallback
   }
 
   function getEstimatedCost(locationName, kWh) {
