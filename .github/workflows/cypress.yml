@@ -48,3 +48,24 @@ jobs:
         with:
           name: videos
           path: cypress/videos
+  stakeholder-requests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Depencencies
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Run Stakeholder Test
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run dev
+          wait: http://localhost:8008
+          spec: cypress/stakeholder-requests/stakeholder-requests.cy.js
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: videos
+          path: cypress/videos
